@@ -13,7 +13,7 @@
     <input type="text" placeholder="Enter First Name" name="fname" required>
 
      <label><b>Last Name</b></label>
-    <input type="text" placeholder="Enter Last Name" name="fname" required>
+    <input type="text" placeholder="Enter Last Name" name="lname" required>
 
     <label><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" required>
