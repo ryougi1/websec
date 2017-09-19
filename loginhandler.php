@@ -7,7 +7,7 @@
 	 $stmt.bind_param("s", $_POST["email"]);
 	 $stmt.execute();
 	 $pwhash = $stmt.fetch;
-	 if (password_verify($rawpw, $_POST["psw"])) {
+	 if (password_verify($pwhash, $_POST["psw"])) {
 	 echo "valid password!";
 	 } else {
 	 echo "wrong password!";
