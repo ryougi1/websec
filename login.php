@@ -5,7 +5,7 @@
 
 <h2>Login Form</h2>
 
-<form action="/action_page.php">
+<form action="/loginhandler.php" method="post">
 
   <div class="container">
     <label><b>Username</b></label>

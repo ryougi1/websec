@@ -9,7 +9,7 @@
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li>
   <li style="float:right"><a href="#about">To checkout</a></li>
-  <li style="float:right"><a href="#about">Log in</a></li>
-  <li style="float:right"><a href="#about">Sign up</a></li>
+  <li style="float:right"><a href="login.php">Log in</a></li>
+  <li style="float:right"><a href="register.php">Sign up</a></li>
 </ul>
 </body>
