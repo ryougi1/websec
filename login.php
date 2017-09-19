@@ -31,14 +31,7 @@ li a:hover {
 </h2>
 <body>
 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li style="float:right"><a href="#about">To checkout</a></li>
-  <li style="float:right"><a href="#about">Log in</a></li>
-  <li style="float:right"><a href="#about">Sign up</a></li>
-</ul>
+<?php include 'header.php'; ?>
 
 </body>
 
