@@ -6,7 +6,7 @@
 
 <h2>Signup Form</h2>
 
-<form action="/action_page.php" style="border:1px solid #ccc">
+<form action="/signuphandler.php" style="border:1px solid #ccc">
   <div class="container">
     
      <label><b>First Name</b></label>
