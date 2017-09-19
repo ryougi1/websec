@@ -13,9 +13,10 @@
 	 ini_get("mysqli.default_user"),
 	 ini_get("mysqli.default_pw"),
 	 "Webshop");
-	 $stmt = $db->prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
-	 $stmt->bind_param("isssssiss",
-	 $uuid,
+	 $stmt = $db->prepare("INSERT INTO Users 
+          (email, firstname, lastname, country, city, zip, address, pwhash)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+	 $stmt->bind_param("sssssiss",
 	 $_POST["email"],
 	 $_POST["fname"],
 	 $_POST["lname"],
