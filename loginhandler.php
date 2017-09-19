@@ -2,7 +2,11 @@
 <?php include 'header.php'; ?>
 <body>
   <?php
-	 $db = new mysqli("localhost", "root", "", "Webshop");
+	 $db = mysqli_connect(
+	 ini_get("mysqli.default_host"),
+	 ini_get("mysqli.default_user"),
+	 ini_get("mysqli.default_pw"),
+	 "Webshop");
 	 $stmt = $db->prepare("SELECT pwhash FROM Users WHERE email = ?;");
      $stmt->bind_param("s", $_POST["email"]);
      $stmt->execute();

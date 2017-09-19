@@ -8,7 +8,11 @@
 
 	 $uuid = uuid();
 	 $pwhash = password_hash($_POST["psw"], PASSWORD_DEFAULT);
-	 $db = new mysqli("localhost", "root", "", "Webshop");
+	 $db = new mysqli(
+	 ini_get("mysqli.default_host"),
+	 ini_get("mysqli.default_user"),
+	 ini_get("mysqli.default_pw"),
+	 "Webshop");
 	 $stmt = $db->prepare("INSERT INTO Users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
 	 $stmt->bind_param("isssssiss",
 	 $uuid,
