@@ -10,10 +10,10 @@
   <div class="container">
     
      <label><b>First Name</b></label>
-    <input type="text" placeholder="Enter First Name" name="name" required>
+    <input type="text" placeholder="Enter First Name" name="fname" required>
 
      <label><b>Last Name</b></label>
-    <input type="text" placeholder="Enter Last Name" name="name" required>
+    <input type="text" placeholder="Enter Last Name" name="fname" required>
 
     <label><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" required>
