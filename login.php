@@ -1,9 +1,15 @@
+<?php include 'sessioninit.php'; ?>
 <html>
   <?php include 'header.php'; ?>
   <link rel="stylesheet" href="webshop.css">
   <body>
 
     <h2>Login Form</h2>
+    <?php
+    if(isset($_GET['msg']) && $_GET['msg'] === 'authfail') {
+      echo '<font color=red> Wrong email or password! </font>';
+    }
+    ?>
 
     <form action="/loginhandler.php" method="post">
 

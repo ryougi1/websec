@@ -1,3 +1,4 @@
+<?php include 'sessioninit.php'; ?>
 <html>
   <?php include 'header.php'; ?>
   <body>
@@ -13,9 +14,12 @@
     $stmt->bind_result($pwhash);
     $stmt->fetch();
     if (password_verify($_POST["psw"], $pwhash)) {
-      echo "valid password!";
+      session_regenerate_id();
+      $_SESSION['email'] = $_POST["email"];
+      $_SESSION['auth'] = true;
+      header('location:index.php');
     } else {
-      echo "wrong password!";
+      header('location:login.php?msg=authfail');
     }
     ?>
   </body>

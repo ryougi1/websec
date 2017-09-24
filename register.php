@@ -1,3 +1,4 @@
+<?php include 'sessioninit.php'; ?>
 <html>
   <?php include 'header.php'; ?>
 
