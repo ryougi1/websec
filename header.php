@@ -10,8 +10,8 @@
     <li><a href="#contact">Contact</a></li>
     <li style="float:right"><a href="#about">To checkout</a></li>
     <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === true): ?>
-    <li style="float:right">Signed in as <?php echo $_SESSION['email'] ?></li>
     <li style="float:right"><a href="logouthandler.php">Sign out</a></li>
+    <li style="float:right">Signed in as <?php echo $_SESSION['email'] ?></li>
     <?php else: ?>
     <li style="float:right"><a href="login.php">Log in</a></li>
     <li style="float:right"><a href="register.php">Sign up</a></li>
