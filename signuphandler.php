@@ -3,11 +3,6 @@
   <?php include 'header.php'; ?>
   <body>
     <?php
-    function uuid() {
-      return 4;
-    }
-
-    $uuid = uuid();
     $pwhash = password_hash($_POST["psw"], PASSWORD_DEFAULT);
     $db = new mysqli(
       ini_get("mysqli.default_host"),
