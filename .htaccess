@@ -1,3 +1,32 @@
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+#[PHP]
+php_value engine On
+php_value expose_php Off
+php_value register_globals Off
+php_value register_long_arrays Off
+php_value allow_url_include Off
+php_value allow_url_fopen On
+#[Date]
+php_value date.timezone Europe/Berlin
+#[MySQLi]
+# php_value mysqli.default_port 3306
+# php_value mysqli.default_host localhost
+# php_value mysqli.default_user $USER
+# php_value mysqli.default_pw $PASSWORD
+#[Session]
+php_value session.cookie_lifetime 0
+php_value session.use_cookies On
+php_value session.use_only_cookies On
+php_value session.use_strict_mode On
+php_value session.cookie_httponly On
+php_value session.cookie_secure On
+php_value session.gc_maxlifetime 1440
+php_value session.use_trans_sid Off
+php_value session.cache_limiter nocache
+# php_value session.referer_check $DOMAIN
+php_value session.sid_length "48"
+php_value session.sid_bits_per_character "6"
+php_value session.hash_function "sha256"
