@@ -3,7 +3,8 @@
   <?php include 'header.php'; ?>
   <body>
     <?php
-    $pwhash = password_hash($_POST["psw"], PASSWORD_DEFAULT);
+    if(!($_POST["psw"] == $_POST["psw-repeat"]))
+      $errors["psw"] = true;
     $db = new mysqli(
       ini_get("mysqli.default_host"),
       ini_get("mysqli.default_user"),
@@ -21,6 +22,7 @@
                       $_POST["zipcode"],
                       $_POST["address"],
                       $pwhash);
+    $pwhash = password_hash($_POST["psw"], PASSWORD_DEFAULT);
     $stmt->execute();
     ?>
   </body>
