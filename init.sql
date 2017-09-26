@@ -1,4 +1,3 @@
--- paste this into command form to init DB
 CREATE DATABASE Webshop;
 CREATE TABLE Users (
   uuid	 	int NOT NULL AUTO_INCREMENT,
@@ -10,6 +9,7 @@ CREATE TABLE Users (
   zip		int NOT NULL,
   address	tinytext NOT NULL,
   pwhash	tinytext NOT NULL,
+  failedlogins	int,
   PRIMARY KEY (uuid)
 );
 
