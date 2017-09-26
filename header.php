@@ -1,5 +1,4 @@
 <h1> Web shop </h1>
-<?php echo implode(',', $_SESSION); ?>
 <h2>
   <link rel="stylesheet" href="header.css">
 </h2>
