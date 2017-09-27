@@ -8,6 +8,6 @@ function session_token() {
 }
 
 session_start();
-session_regenerate_form_token();
+if (!isset($_SESSION['form-token'])) session_regenerate_form_token();
 if (!isset($_SESSION['auth'])) $_SESSION['auth'] = false;
 ?>

@@ -3,8 +3,10 @@
   <?php include 'header.php'; ?>
   <body>
     <?php
-    if (!($_POST["form-token"] === $_SESSION["form-token"]))
+    if (!($_POST["form-token"] === $_SESSION["form-token"])) {
       header('location:login.php?msg=expired');
+      die();
+    }
     $db = mysqli_connect(
       ini_get("mysqli.default_host"),
       ini_get("mysqli.default_user"),
