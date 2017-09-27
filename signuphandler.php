@@ -3,7 +3,7 @@
   <?php include 'header.php'; ?>
   <body>
     <?php
-    if(!($_POST["psw"] == $_POST["psw-repeat"]))
+    if(!($_POST["psw"] === $_POST["psw-repeat"]))
       $errors["psw"] = true;
     $db = new mysqli(
       ini_get("mysqli.default_host"),
