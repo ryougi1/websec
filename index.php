@@ -38,13 +38,18 @@
     </style>
   </head>
   <body>
-
     <?php
+    if(isset($_GET['msg'])) {
+      if($_GET['msg'] === 'expired')
+        echo '<font color=red> Expired session, please refresh page. </font>';
+    }
+
     $db = new mysqli(
       ini_get("mysqli.default_host"),
       ini_get("mysqli.default_user"),
       ini_get("mysqli.default_pw"),
       "Webshop");
+    $token = $_SESSION["form-token"];
     $stmt = $db->prepare("SELECT prodID, prodName, prodCost, prodImage FROM Products;");
     $stmt->execute();
     $stmt->bind_result($id, $name, $cost, $image);
@@ -58,7 +63,11 @@
     <div class="desc">
       <p>$name</p>
       <p>$cost kr</p>
-      <button class="button">Buy</button>
+      <form action="addtocart.php" method="post">
+        <input type="hidden" name="form-token" value="$token">
+        <input type="hidden" name="prod-ID" value="$id">
+        <button class="button">Buy</button>
+      </form>
     </div>
   </div>
 HTML;
