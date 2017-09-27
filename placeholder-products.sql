@@ -1,0 +1,1 @@
+INSERT INTO Products VALUES (1, "Shoe 1", 699, 100, "ayo-ogunseinde-132344.jpg"), (2, "Shoe 2", 699, 100, "dominik-martin-100802.jpg"), (3, "Shoe 3", 699, 100, "jakob-owens-102203.jpg"), (4, "Shoe 4", 699, 100, "joseph-barrientos-82309.jpg");
