@@ -3,6 +3,8 @@
   <?php include 'header.php'; ?>
   <body>
     <?php
+    if (!($_POST["form-token"] === $_SESSION["form-token"]))
+      header('location:register.php?msg=expired');
     if(!($_POST["psw"] === $_POST["psw-repeat"]))
       $errors["psw"] = true;
     $db = new mysqli(

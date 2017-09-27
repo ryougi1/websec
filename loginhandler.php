@@ -3,6 +3,8 @@
   <?php include 'header.php'; ?>
   <body>
     <?php
+    if (!($_POST["form-token"] === $_SESSION["form-token"]))
+      header('location:login.php?msg=expired');
     $db = mysqli_connect(
       ini_get("mysqli.default_host"),
       ini_get("mysqli.default_user"),
@@ -15,6 +17,7 @@
     $stmt->fetch();
     if (password_verify($_POST["psw"], $pwhash)) {
       session_regenerate_id();
+      session_regenerate_form_token();
       $_SESSION['email'] = $_POST["email"];
       $_SESSION['auth'] = true;
       header('location:index.php');
