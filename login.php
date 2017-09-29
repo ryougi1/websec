@@ -8,14 +8,12 @@
     <?php
     if(isset($_GET['msg']) && $_GET['msg'] === 'authfail') {
       echo '<font color=red> Wrong email or password! </font>';
-    } else if(isset($_GET['msg']) && $_GET['msg'] == 'expired') {
-      echo '<font color=red> Link from outside of session rejected! </font>';
     }
+    show_token_error();
     ?>
 
     <form action="/loginhandler.php" method="post">
-      <input type="hidden" name="form-token"
-             value="<?=$_SESSION["form-token"] ?>" >
+      <? insert_token(); ?>
 
       <div class="container">
         <label><b>Username</b></label>

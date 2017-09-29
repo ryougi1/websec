@@ -8,8 +8,7 @@
     <h2>Signup Form</h2>
 
     <form action="/signuphandler.php" method="post" style="border:1px solid #ccc">
-      <input type="hidden" name="form-token"
-             value="<?=$_SESSION["form-token"] ?>" >
+      <? insert_token(); ?>
       <div class="container">
 
         <label><b>First Name</b></label>

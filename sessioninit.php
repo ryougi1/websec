@@ -7,6 +7,26 @@ function session_token() {
   return $_SESSION['form-token'];
 }
 
+function insert_token() {
+  $token = $_SESSION["form-token"];
+  echo
+<<<HTML
+  <input type="hidden" name="form-token" value="$token">
+HTML;
+}
+
+function check_token($location) {
+  if (!($_POST["form-token"] === $_SESSION["form-token"])) {
+    header("location:$location.php?msg=expired");
+    die();
+  }
+}
+
+function show_token_error() {
+  if (isset($_GET['msg']) && $_GET['msg'] == 'expired')
+    echo '<font color=red> Link from outside of session rejected</font>';
+}
+
 session_start();
 if (!isset($_SESSION['form-token'])) session_regenerate_form_token();
 if (!isset($_SESSION['auth'])) $_SESSION['auth'] = false;

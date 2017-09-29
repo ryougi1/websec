@@ -10,12 +10,9 @@
       ini_get("mysqli.default_pw"),
       "Webshop");
 
-    if (!($_POST["form-token"] === $_SESSION["form-token"])) {
-      header('location:register.php?msg=expired');
-      die();
-    }
+    check_token('register');
 
-    
+
 /* Error handlers*/
 
 //Make sure password length >= 10, includes one upper case, one lower case and a digit
@@ -23,7 +20,7 @@ if(!preg_match("/(?=.*[a-Z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}/", $_POST["psw"])
   header('location:register.php?signup=weakpw');
   die();
 }
-//Make sure passwords match   
+//Make sure passwords match
 if(!($_POST["psw"] === $_POST["psw-repeat"])) {
   header('location:register.php?signup=nomatchpw');
   die();
@@ -44,7 +41,7 @@ if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
     die();
   }
 }
-  
+
 $stmt3 = $db->prepare("INSERT INTO Users
           (email, firstname, lastname, country, city, zip, address, pwhash)
           VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
