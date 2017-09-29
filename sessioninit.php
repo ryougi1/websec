@@ -8,10 +8,9 @@ function session_token() {
 }
 
 function insert_token() {
-  $token = $_SESSION["form-token"];
   echo
 <<<HTML
-  <input type="hidden" name="form-token" value="$token">
+  <input type="hidden" name="form-token" value="{$_SESSION['form-token']}">
 HTML;
 }
 
