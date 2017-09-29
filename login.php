@@ -13,7 +13,7 @@
     ?>
 
     <form action="/loginhandler.php" method="post">
-      <? insert_token(); ?>
+      <?php insert_token(); ?>
 
       <div class="container">
         <label><b>Username</b></label>

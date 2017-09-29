@@ -8,7 +8,7 @@
     <h2>Signup Form</h2>
 
     <form action="/signuphandler.php" method="post" style="border:1px solid #ccc">
-      <? insert_token(); ?>
+      <?php insert_token(); ?>
       <div class="container">
 
         <label><b>First Name</b></label>
