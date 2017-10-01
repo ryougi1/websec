@@ -6,7 +6,9 @@
   <ul>
     <li><a class="active" href="index.php">Home</a></li>
     <!--<li style="float:right"><a href="#about">To checkout</a></li>-->
-  <li style="float:right;font-size:18px;color:#f2f2f2;"> <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a> </li>
+    <?php if ($_SESSION['auth']): ?>
+    <li style="float:right;font-size:18px;color:#f2f2f2;"> <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a> </li>
+    <?php endif; ?>
     <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === true): ?>
     <li style="float:right"><a href="logouthandler.php">Sign out</a></li>
     <li style="float:right">Signed in as <?php echo $_SESSION['email'] ?></li>

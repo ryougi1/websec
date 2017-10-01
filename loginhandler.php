@@ -29,7 +29,7 @@ $stmt->bind_result($pwhash, $lastfail, $fails);
 $stmt->fetch();
 $stmt->close();
 if ($pwhash === NULL)
-  header('location:login.php?msg=wrongemail');
+  header('location:login.php?msg=authfail');
 else {
   if ($fails > 5 && $lastfail > time() - locktime($fails)) {
     $unlocks = $lastfail + locktime($fails);

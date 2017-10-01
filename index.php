@@ -53,26 +53,23 @@
     $stmt = $db->prepare("SELECT prodID, prodName, prodCost, prodImage FROM Products;");
     $stmt->execute();
     $stmt->bind_result($id, $name, $cost, $image);
-    while ($stmt->fetch()) {
-      $out =
-<<<HTML
-  <div class="gallery">
-    <a target="_blank" href="$image">
-      <img src="$image" alt="$name" width="600" height="400">
-    </a>
-    <div class="desc">
-      <p>$name</p>
-      <p>$cost kr</p>
-      <form action="addtocart.php" method="post">
-        <input type="hidden" name="form-token" value="$token">
-        <input type="hidden" name="prod-ID" value="$id">
-        <button class="button">Buy</button>
-      </form>
+    while ($stmt->fetch()): ?>
+    <div class="gallery">
+      <a target="_blank" href="<?=$image?>">
+        <img src="$image" alt="<?=$name?>" width="600" height="400">
+      </a>
+      <div class="desc">
+        <p><?= $name ?></p>
+        <p><?= $cost ?>kr</p>
+        <?php if ($_SESSION['auth'] === true): ?>
+        <form action="addtocart.php" method="post">
+          <?php insert_token(); ?>
+          <input type="hidden" name="prod-ID" value="<?= $id ?>">
+          <button class="button">Buy</button>
+          <?php endif; ?>
+        </form>
+      </div>
     </div>
-  </div>
-HTML;
-      echo $out;
-    }
-    ?>
+    <?php endwhile; ?>
   </body>
 </html>
