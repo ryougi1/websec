@@ -9,7 +9,8 @@ CREATE TABLE Users (
   zip		int NOT NULL,
   address	tinytext NOT NULL,
   pwhash	tinytext NOT NULL,
-  failedlogins	int,
+  lastfail  timestamp,
+  fails	    int DEFAULT 0,
   PRIMARY KEY (uuid)
 );
 
@@ -27,15 +28,15 @@ CREATE TABLE PwBlacklist (
   password  varchar(10) NOT NULL,
   PRIMARY KEY (primkey)
   );
-  
-  INSERT INTO PwBlacklist (password) VALUES 
-  ("Password12"), 
- ("passworD12"), 
- ("pASSWORD12"), 
- ("PASSWORd12"), 
+
+  INSERT INTO PwBlacklist (password) VALUES
+  ("Password12"),
+ ("passworD12"),
+ ("pASSWORD12"),
+ ("PASSWORd12"),
  ("Abcdefgh1j"),
  ("ABCDEFGH1j"),
- ("4Bcdefghij"), 
- ("abcd3Fghij"), 
- ("12345678Aa"), 
+ ("4Bcdefghij"),
+ ("abcd3Fghij"),
+ ("12345678Aa"),
  ("Aa12345678");

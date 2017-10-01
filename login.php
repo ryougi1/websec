@@ -6,8 +6,18 @@
 
     <h2>Login Form</h2>
     <?php
-    if(isset($_GET['msg']) && $_GET['msg'] === 'authfail') {
-      echo '<font color=red> Wrong email or password! </font>';
+    if(isset($_GET['msg'])) {
+      $msg = $_GET['msg'];
+      echo '<font color=red>';
+      if ($msg === 'wrongemail')
+        echo 'Email not registered';
+      else if ($msg === 'authfail')
+        echo 'Wrong email or password';
+      else if ($msg === 'lockout') {
+        $unlocks = date('Y-m-d H:i:s', $_GET['time']);
+        echo "Too many login attempts. Account locked until $unlocks";
+      }
+      echo '</font>';
     }
     show_token_error();
     ?>
