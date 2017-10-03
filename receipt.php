@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php include 'sessioninit.php'; ?>
+<?php include 'sessioninit.php';
+check_token('cart')
+?>
 <html>
   <head/>
   <body>
