@@ -56,7 +56,7 @@
     while ($stmt->fetch()): ?>
     <div class="gallery">
       <a target="_blank" href="<?=$image?>">
-        <img src="$image" alt="<?=$name?>" width="600" height="400">
+        <img src="<?= $image?>" alt="<?=$name?>" width="600" height="400">
       </a>
       <div class="desc">
         <p><?= $name ?></p>
