@@ -3,7 +3,7 @@
   <head>
     <body>
 
-      <title>Webshop</title>
+      <!--<title>Webshop</title>
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel = "stylesheet"
@@ -16,15 +16,9 @@
 
       <div class="header" style = "color: #fff">
         <h1> AB Shoes </h1>
-      </div>
+      </div>-->
 
-      <nav>
-        <li><a class="active" href="webshop.html">AB Shoes</a></li>
-        <li style="float:right;font-size:18px;color:#f2f2f2;"> <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span></a> </li>
-        <li style="float:right"><a href="login.php">Log in</a></li>
-        <li style="float:right"><a href="register.php">Sign up</a></li>
-        </li>
-      </nav>
+      <?php include 'header.php'; ?>
     </body>
 
 
