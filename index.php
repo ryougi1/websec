@@ -2,6 +2,7 @@
 <html>
   <?php include 'header.php'; ?>
   <head>
+    <?php show_token_error(); ?>
 
     <title>Webshop</title>
 
@@ -39,11 +40,6 @@
   </head>
   <body>
     <?php
-    if(isset($_GET['msg'])) {
-      if($_GET['msg'] === 'expired')
-        echo '<font color=red> Expired session, please refresh page. </font>';
-    }
-
     $db = new mysqli(
       ini_get("mysqli.default_host"),
       ini_get("mysqli.default_user"),

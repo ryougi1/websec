@@ -20,6 +20,7 @@
 
       <?php include 'header.php';?>
     </body>
+    <?php show_token_error(); ?>
 
 
   <style>
