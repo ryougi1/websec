@@ -22,3 +22,13 @@ li a {
 li a:hover {
   background-color: #111;
 }
+
+li form button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+li form button:hover {
+  background-color: #111;
+}
