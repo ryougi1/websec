@@ -40,6 +40,7 @@ else {
       session_regenerate_form_token();
       $_SESSION['email'] = $_POST['email'];
       $_SESSION['auth'] = true;
+      $_SESSION['cart'] = [];
       $fails = 0;
       $stmt = $db->prepare("UPDATE Users SET fails = ? WHERE email = ?");
       $stmt->bind_param('is', $fails, $_POST['email']);
