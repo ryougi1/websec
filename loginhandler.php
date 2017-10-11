@@ -17,20 +17,31 @@ function locktime($fails) {
 }
 
 check_token('login');
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $db = mysqli_connect(
   ini_get("mysqli.default_host"),
   ini_get("mysqli.default_user"),
   ini_get("mysqli.default_pw"),
   "Webshop");
-$stmt = $db->prepare("SELECT pwhash, UNIX_TIMESTAMP(lastfail), fails FROM Users WHERE email = ?;");
+/*
+$stmt = $db->prepare("SELECT pwhash, UNIX_TIMESTAMP(lastfail), fails FROM Users WHERE email = \"{$_POST['email']}\";");
 $stmt->bind_param('s', $_POST['email']);
 $stmt->execute();
 $stmt->bind_result($pwhash, $lastfail, $fails);
 $stmt->fetch();
 $stmt->close();
-if ($pwhash === NULL)
-  header('location:login.php?msg=authfail');
+*/
+$q1 = "SELECT pwhash, UNIX_TIMESTAMP(lastfail), fails FROM Users WHERE email = \"{$_POST['email']}\";";
+echo $q1;
+$db->multi_query($q1);
+$result = $db->store_result();
+if ($result->num_rows == 0)
+  header('location:login.php?msg=wrongemail');
 else {
+  $row = $result->fetch_assoc();
+  $pwhash = $row['pwhash'];
+  $lastfail = $row['lastfail'];
+  $fails = $row['fails'];
   if ($fails > 5 && $lastfail > time() - locktime($fails)) {
     $unlocks = $lastfail + locktime($fails);
     header("location:login.php?msg=lockout&time=$unlocks");
