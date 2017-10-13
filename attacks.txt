@@ -4,7 +4,7 @@ test"; INSERT INTO PwBlacklist (password) VALUES ("hunter2"); --
 
 XSS: 
 Create user with the following address:
-<script>alert('stole this from website about XSS')</script>
+Take me away<script>window.location=’ https://www.youtube.com/watch?v=DSlphvKLTlE’</script>
 Then somehow bypass all CSRF protection and log in and go to receipt
 
 CSRF:
