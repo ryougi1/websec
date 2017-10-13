@@ -27,7 +27,7 @@ $stmt->close();;
     ?>
     <p>Shipping to:<br>
       <?= htmlentities("$firstname $lastname") ?><br>
-      <?= htmlentities($address) ?><br>
+      <?= $address ?><br>
       <?= htmlentities("$zip $city") ?><br>
       <?= htmlentities($country) ?>
     </p>
