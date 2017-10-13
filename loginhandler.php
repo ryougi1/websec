@@ -1,4 +1,3 @@
-
 <?php
 /*
 Login flow:
@@ -11,11 +10,9 @@ Login flow:
       Else, increment lockout, reply lockout
 */
 include 'sessioninit.php';
-
 function locktime($fails) {
-  return 40 * 2 ** $fails;
+  return 20 * 2 ** $fails;
 }
-
 check_token('login');
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $db = mysqli_connect(
@@ -38,7 +35,6 @@ $result = $db->store_result();
 if ($result->num_rows == 0)
   header('location:login.php?msg=wrongemail');
 else {
-  if ($fails > 2 && $lastfail > time() - locktime($fails)) {
   $row = $result->fetch_assoc();
   $pwhash = $row['pwhash'];
   $lastfail = $row['lastfail'];
