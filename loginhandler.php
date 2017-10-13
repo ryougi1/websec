@@ -13,7 +13,7 @@ Login flow:
 include 'sessioninit.php';
 
 function locktime($fails) {
-  return 20 * 2 ** $fails;
+  return 40 * 2 ** $fails;
 }
 
 check_token('login');
@@ -31,7 +31,7 @@ $stmt->close();
 if ($pwhash === NULL)
   header('location:login.php?msg=authfail');
 else {
-  if ($fails > 5 && $lastfail > time() - locktime($fails)) {
+  if ($fails > 2 && $lastfail > time() - locktime($fails)) {
     $unlocks = $lastfail + locktime($fails);
     header("location:login.php?msg=lockout&time=$unlocks");
   } else {
