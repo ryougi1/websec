@@ -38,15 +38,12 @@ $result = $db->store_result();
 if ($result->num_rows == 0)
   header('location:login.php?msg=wrongemail');
 else {
-<<<<<<< HEAD
   if ($fails > 2 && $lastfail > time() - locktime($fails)) {
-=======
   $row = $result->fetch_assoc();
   $pwhash = $row['pwhash'];
   $lastfail = $row['lastfail'];
   $fails = $row['fails'];
   if ($fails > 5 && $lastfail > time() - locktime($fails)) {
->>>>>>> 7f6407183ced5a50bc084f715883933ec07aed74
     $unlocks = $lastfail + locktime($fails);
     header("location:login.php?msg=lockout&time=$unlocks");
   } else {
