@@ -29,7 +29,6 @@ $stmt->fetch();
 $stmt->close();
 */
 $q1 = "SELECT pwhash, UNIX_TIMESTAMP(lastfail), fails FROM Users WHERE email = \"{$_POST['email']}\";";
-echo $q1;
 $db->multi_query($q1);
 $result = $db->store_result();
 if ($result->num_rows == 0)
